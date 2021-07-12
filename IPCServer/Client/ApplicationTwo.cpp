@@ -5,15 +5,15 @@
 struct MyData
 {
 	int i;
-	//float f;
-	//char c;
-	//bool b;
-	//double d;
+	float f;
+	char c;
+	bool b;
+	double d;
 };
 
 int main()
 {
-	HANDLE fileHandle = OpenFileMapping(FILE_MAP_ALL_ACCESS, false, L"MySharedMemoty");
+	HANDLE fileHandle = OpenFileMapping(FILE_MAP_ALL_ACCESS, false, L"MySharedMemory");
 
 	if (fileHandle == nullptr)
 	{
@@ -33,13 +33,13 @@ int main()
 
 	std::cout << "MyData = {";
 	std::cout << data->i << ",";
-	//std::cout << data->f << ",";
-	//std::cout << data->c << ",";
-	//std::cout << data->b << ",";
-	//std::cout << data->d << ",";
+	std::cout << data->f << ",";
+	std::cout << data->c << ",";
+	std::cout << data->b << ",";
+	std::cout << data->d << " ";
 	std::cout << " }:" << std::endl;
 
-	//_getch();
+	_getch();
 
 	UnmapViewOfFile(data);
 

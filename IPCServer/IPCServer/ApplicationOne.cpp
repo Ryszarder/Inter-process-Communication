@@ -5,15 +5,15 @@
 struct MyData
 {
 	int i;
-	//float f;
-	//char c;
-	//bool b;
-	//double d;
+	float f;
+	char c;
+	bool b;
+	double d;
 };
 
 int main()
 {
-	MyData myData = { 10 };
+	MyData myData = { 10, 3.8f, 'C', false, 70.52 };
 
 	HANDLE fileHandle = CreateFileMapping(INVALID_HANDLE_VALUE, nullptr, PAGE_READWRITE, 0, sizeof(MyData), L"MySharedMemory");
 
@@ -34,7 +34,7 @@ int main()
 
 	*data = myData;
 
-	//_getch();
+	_getch();
 
 	UnmapViewOfFile(data);
 
